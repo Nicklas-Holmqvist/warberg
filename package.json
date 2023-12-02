@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@metamist/lucide-react": "^0.72.0-patch4",
     "react": "^18",
     "react-dom": "^18",
     "next": "14.0.3"

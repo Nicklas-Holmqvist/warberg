@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { StructuredText } from 'react-datocms';
 
 interface YearLeftProps {
@@ -16,7 +17,16 @@ const YearLeft: React.FC<YearLeftProps> = ({ data }) => {
       </div>
       <div className="">
         <div className="p-10 pl-[2.75rem] pt-14 max-w-[50rem] leading-5 year-content">
-          <StructuredText data={data.content} />
+          {data.image ? (
+            <Image
+              src={`${data.image.url}`}
+              alt={data.image.alt}
+              height={300}
+              width={500}
+            />
+          ) : (
+            <StructuredText data={data.content} />
+          )}
         </div>
       </div>
     </article>

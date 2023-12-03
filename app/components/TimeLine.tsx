@@ -18,6 +18,10 @@ async function fetchCentury() {
         content {
           value
         }
+        image {
+          url
+          alt
+        }
       }
     }
   }`;
@@ -35,6 +39,7 @@ export interface CenturyType {
   years: {
     year: string;
     content: any;
+    image: any;
   }[];
 }
 

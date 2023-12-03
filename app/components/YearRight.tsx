@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { StructuredText } from 'react-datocms';
 
 interface YearRightProps {
@@ -10,7 +11,16 @@ const YearRight: React.FC<YearRightProps> = ({ data }) => {
     <article className="grid grid-cols-2">
       <div className="border-r-2 justify-self-end">
         <div className="p-10 pr[2.75rem] pt-14 max-w-[50rem] leading-5 year-content">
-          <StructuredText data={data.content} />
+          {data.image ? (
+            <Image
+              src={`${data.image.url}`}
+              alt={data.image.alt}
+              height={300}
+              width={500}
+            />
+          ) : (
+            <StructuredText data={data.content} />
+          )}
         </div>
       </div>
       <div className="">

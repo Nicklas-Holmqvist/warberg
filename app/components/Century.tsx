@@ -1,16 +1,25 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import ReadMoreButton from './ReadMoreButton';
 import CenturyContent from './CenturyContent';
 
-interface CenturyProps {}
+interface CenturyProps {
+  data: {
+    id: string;
+    century: string;
+    summary: string;
+  };
+}
 
-const Century: React.FC<CenturyProps> = ({}) => {
+const Century: React.FC<CenturyProps> = ({ data }) => {
+  const [open, setOpen] = useState(false);
   return (
     <section className="py-10">
-      <h2 className="">1200-talet</h2>
-      <h5 className="text-center">Sammanfattning om århundandet</h5>
-      <ReadMoreButton />
-      <CenturyContent />
+      <h2 className="">{data.century}</h2>
+      <h5 className="text-center">{data.summary}</h5>
+      <ReadMoreButton onClick={() => setOpen(!open)} />
+      {open ? <CenturyContent /> : null}
     </section>
   );
 };

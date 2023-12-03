@@ -15,7 +15,6 @@ interface CenturyContentProps {
 }
 
 const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
-  console.log(data);
   return (
     <>
       {data.map((year, id) =>

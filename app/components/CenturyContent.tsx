@@ -1,10 +1,27 @@
 import React from 'react';
-import YearContent from './YearContent';
 
-interface CenturyProps {}
+import YearLeft from './YearLeft';
+import YearRight from './YearRight';
 
-const CenturyContent: React.FC<CenturyProps> = ({}) => {
-  return <YearContent />;
+interface CenturyContentProps {
+  data: {
+    years: string;
+    content: any;
+  }[];
+}
+
+const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
+  return (
+    <>
+      {data.map((year, id) =>
+        id % 2 === 0 ? (
+          <YearLeft key={id} data={year} />
+        ) : (
+          <YearRight key={id} data={year} />
+        )
+      )}
+    </>
+  );
 };
 
 export default CenturyContent;

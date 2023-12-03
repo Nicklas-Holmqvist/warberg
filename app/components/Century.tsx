@@ -1,10 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { Suspense, useState } from 'react';
 
+import { CenturyType } from './TimeLine';
 import ReadMoreButton from './ReadMoreButton';
 import CenturyContent from './CenturyContent';
-import { CenturyType } from './TimeLine';
 
 interface CenturyProps {
   data: CenturyType;
@@ -17,7 +17,9 @@ const Century: React.FC<CenturyProps> = ({ data }) => {
       <h2 className="">{data.century}</h2>
       <h5 className="text-center">{data.summary}</h5>
       <ReadMoreButton text={data.buttonText} onClick={() => setOpen(!open)} />
-      {open ? <CenturyContent /> : null}
+      <Suspense fallback={'loading...'}>
+        {open ? <CenturyContent data={data.years} /> : null}
+      </Suspense>
     </section>
   );
 };

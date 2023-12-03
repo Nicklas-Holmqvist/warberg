@@ -1,20 +1,27 @@
 import React from 'react';
-import Century from './Century';
 import { notFound } from 'next/navigation';
+
+import Century from './Century';
 import { performRequest } from '@/lib/apollo';
 
 interface TimeLineProps {}
 
 async function fetchCentury() {
-  const PAGE_CONTENT_QUERY = `
+  const CENTURIES = `
   query centruis {
     allCenturies(orderBy:century_ASC) {
-    id
-    century
-    summary 
-  }
+      century
+      summary
+      buttonText
+      years {
+        year
+        content {
+          value
+        }
+      }
+    }
   }`;
-  const data = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const data = await performRequest({ query: CENTURIES });
 
   if (data.errors) return notFound();
 
@@ -25,6 +32,10 @@ export interface CenturyType {
   century: string;
   summary: string;
   buttonText: string;
+  years: {
+    year: string;
+    content: any;
+  }[];
 }
 
 export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Element> {

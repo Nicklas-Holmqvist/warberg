@@ -2,6 +2,10 @@ export const performRequest = async ({
   query,
   variables = {},
   includeDrafts = false,
+}: {
+  query: any;
+  variables: {};
+  includeDrafts: boolean;
 }) => {
   const response = await fetch('https://graphql.datocms.com/', {
     headers: {

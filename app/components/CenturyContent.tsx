@@ -5,12 +5,17 @@ import YearRight from './YearRight';
 
 interface CenturyContentProps {
   data: {
-    years: string;
+    year: string;
     content: any;
+    image: {
+      url: string;
+      alt: string;
+    } | null;
   }[];
 }
 
 const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
+  console.log(data);
   return (
     <>
       {data.map((year, id) =>

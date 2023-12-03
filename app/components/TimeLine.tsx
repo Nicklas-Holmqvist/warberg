@@ -45,6 +45,7 @@ export interface CenturyType {
 
 export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Element> {
   const { data }: any = await fetchCentury();
+
   return (
     <div>
       <h4>Läs historien om vad som kom att blir Varbergs största besöksmål</h4>

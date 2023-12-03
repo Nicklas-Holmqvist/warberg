@@ -20,19 +20,19 @@ async function fetchCentury() {
 
   return data;
 }
-interface Century {
+export interface CenturyType {
   id: string;
   century: string;
   summary: string;
+  buttonText: string;
 }
 
 export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Element> {
   const { data }: any = await fetchCentury();
-  console.log(data);
   return (
     <div>
       <h4>Läs historien om vad som kom att blir Varbergs största besöksmål</h4>
-      {data.allCenturies.map((century: Century) => (
+      {data.allCenturies.map((century: CenturyType) => (
         <Century key={century.id} data={century} />
       ))}
     </div>

@@ -1,8 +1,12 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useMediaQuery } from 'react-responsive';
 
 import YearLeft from './YearLeft';
 import YearRight from './YearRight';
+import YearMobile from './YearMobile';
 
 interface CenturyContentProps {
   data: {
@@ -16,6 +20,10 @@ interface CenturyContentProps {
 }
 
 const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
+  const smallScreen = useMediaQuery({
+    query: '(max-width: 900px)',
+  });
+
   return (
     <>
       {data.map((year, index) => (
@@ -25,10 +33,16 @@ const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
           initial="hidden"
           animate="show"
           custom={index}>
-          {index % 2 === 0 ? (
-            <YearLeft data={year} />
+          {smallScreen ? (
+            <YearMobile data={year} />
           ) : (
-            <YearRight data={year} />
+            <>
+              {index % 2 === 0 ? (
+                <YearLeft data={year} />
+              ) : (
+                <YearRight data={year} />
+              )}
+            </>
           )}
         </motion.article>
       ))}
@@ -46,6 +60,7 @@ const motionArticle = {
     transition: {
       delay: index * 0.1,
       duration: 0.2,
+      stiffness: 100,
     },
   }),
 };

@@ -17,7 +17,7 @@ const Century: React.FC<CenturyProps> = ({ data }) => {
   const isInView = useInView(ref);
 
   return (
-    <section className="py-10" ref={ref}>
+    <section className="pb-10" ref={ref}>
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : ''}>

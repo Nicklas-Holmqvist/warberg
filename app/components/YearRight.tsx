@@ -9,8 +9,8 @@ interface YearRightProps {
 const YearRight: React.FC<YearRightProps> = ({ data }) => {
   return (
     <article className="grid grid-cols-2">
-      <div className="border-r-2 justify-self-end">
-        <div className="p-10 pr[2.75rem] pt-14 max-w-[50rem] leading-5 year-content">
+      <div className="border-r-2 justify-self-end border-black dark:border-white">
+        <div className="p-10 pr[2.75rem] pt-14 max-w-[50rem] leading-5 year-content text-black dark:text-white">
           {data.image ? (
             <Image
               src={`${data.image.url}`}
@@ -24,9 +24,9 @@ const YearRight: React.FC<YearRightProps> = ({ data }) => {
         </div>
       </div>
       <div className="">
-        <h3 className="relative w-[13rem] text-right border-0 border-b-2 border-solid">
+        <h3 className="relative w-[13rem] text-right border-0 border-b-2 border-solid border-black dark:border-white text-black dark:text-white">
           {data.year}
-          <span className="absolute w-2 p-1 border rounded-full outline outline-8 outline-[#100b00] bg-white bottom-[-6px] left-[-6px]"></span>
+          <span className="absolute w-2 p-1 border rounded-full outline outline-8 outline-[#100b00] bg-white bottom-[-6px] left-[-6px] text-black dark:text-white"></span>
         </h3>
       </div>
     </article>

@@ -21,8 +21,8 @@ const Century: React.FC<CenturyProps> = ({ data }) => {
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : ''}>
-        <h2 className="">{data.century}</h2>
-        <h5 className="text-center">{data.summary}</h5>
+        <h2 className="text-black dark:text-white">{data.century}</h2>
+        <h5 className="text-black dark:text-white">{data.summary}</h5>
         <ReadMoreButton
           text={data.buttonText}
           open={open}

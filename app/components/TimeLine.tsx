@@ -47,8 +47,10 @@ export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Ele
   const { data }: any = await fetchCentury();
 
   return (
-    <div>
-      <h4>Läs historien om vad som kom att blir Varbergs största besöksmål</h4>
+    <div className="bg-white dark:bg-black">
+      <h4 className="text-black dark:text-white">
+        Läs historien om vad som kom att blir Varbergs största besöksmål
+      </h4>
       {data.allCenturies.map((century: CenturyType) => (
         <Century key={century.id} data={century} />
       ))}

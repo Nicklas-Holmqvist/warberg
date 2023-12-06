@@ -10,16 +10,23 @@ const YearRight: React.FC<YearRightProps> = ({ data }) => {
   return (
     <article className="grid grid-cols-2">
       <div className="border-r-2 justify-self-end border-black dark:border-white">
-        <div className="p-10 pr[2.75rem] pt-14 max-w-[50rem] leading-5 year-content text-black dark:text-white">
+        <div className="p-10 pr[2.75rem] pt-14 max-w-[50rem] leading-5 text-black dark:text-white">
           {data.image ? (
-            <Image
-              src={`${data.image.url}`}
-              alt={data.image.alt}
-              height={300}
-              width={500}
-            />
+            <>
+              <Image
+                src={`${data.image.url}`}
+                alt={data.image.alt}
+                title={data.image.title}
+                height={300}
+                width={800}
+              />
+              <p className="pt-2">{data.image.title}</p>
+              <p className="pt-1 text-xs italic">Källa: {data.image.notes}</p>
+            </>
           ) : (
-            <StructuredText data={data.content} />
+            <div className="year-content">
+              <StructuredText data={data.content} />
+            </div>
           )}
         </div>
       </div>

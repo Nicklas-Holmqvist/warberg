@@ -10,7 +10,7 @@ const YearMobile: React.FC<YearMobileProps> = ({ data }) => {
   return (
     <article className="grid grid-row-1 pl-4">
       <div className="border-l-2 border-black dark:border-white">
-        <h3 className="relative max-w-[13rem] pl-10 border-0 border-b-2 border-solid text-black dark:text-white">
+        <h3 className="relative max-w-[11rem] sm:max-w-[13rem] pl-10 border-0 border-b-2 border-solid text-black dark:text-white">
           {data.year}
           <span className="absolute w-2 p-1 border rounded-full outline outline-8 outline-[#100b00] bg-white bottom-[-6px] left-[-6px] text-black dark:text-white"></span>
         </h3>
@@ -27,7 +27,7 @@ const YearMobile: React.FC<YearMobileProps> = ({ data }) => {
                 width={800}
               />
               <p className="pt-2">{data.image.title}</p>
-              <p className="pt-1 text-xs italic">Källa: {data.image.notes}</p>
+              <p className="pt-1 text-xs italic">Bild: {data.image.notes}</p>
             </>
           ) : (
             <div className="year-content">

@@ -21,7 +21,9 @@ const YearRight: React.FC<YearRightProps> = ({ data }) => {
                 width={800}
               />
               <p className="pt-2">{data.image.title}</p>
-              <p className="pt-1 text-xs italic">Källa: {data.image.notes}</p>
+              <p className="pt-[0.2rem] text-xs italic">
+                Bild: {data.image.notes}
+              </p>
             </>
           ) : (
             <div className="year-content">

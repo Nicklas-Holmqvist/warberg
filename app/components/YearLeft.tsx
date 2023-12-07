@@ -26,8 +26,10 @@ const YearLeft: React.FC<YearLeftProps> = ({ data }) => {
                 height={300}
                 width={800}
               />
-              <p className="pt-2">{data.image.title}</p>
-              <p className="pt-1 text-xs italic">Källa: {data.image.notes}</p>
+              <p className="pt-2 leading-4">{data.image.title}</p>
+              <p className="pt-[0.2rem] text-xs italic">
+                Bild: {data.image.notes}
+              </p>
             </>
           ) : (
             <div className="year-content">

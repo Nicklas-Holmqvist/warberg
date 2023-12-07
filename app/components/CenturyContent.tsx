@@ -29,7 +29,7 @@ const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
       {data.map((year, index) => (
         <motion.article
           key={index}
-          variants={motionArticle}
+          variants={smallScreen ? motionArticleUp : motionArticleScale}
           initial="hidden"
           animate="show"
           custom={index}>
@@ -37,7 +37,7 @@ const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
             <YearMobile data={year} />
           ) : (
             <>
-              {index % 2 === 0 ? (
+              {index % 2 !== 0 ? (
                 <YearLeft data={year} />
               ) : (
                 <YearRight data={year} />
@@ -52,11 +52,25 @@ const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
 
 export default CenturyContent;
 
-const motionArticle = {
-  hidden: { opacity: 0, scale: 0.8 },
+const motionArticleScale = {
+  hidden: { opacity: 0, scale: 0.8, y: 50 },
   show: (index: number) => ({
     opacity: 1,
     scale: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.1,
+      duration: 0.2,
+      stiffness: 100,
+    },
+  }),
+};
+
+const motionArticleUp = {
+  hidden: { opacity: 0, y: 50 },
+  show: (index: number) => ({
+    opacity: 1,
+    y: 0,
     transition: {
       delay: index * 0.1,
       duration: 0.2,

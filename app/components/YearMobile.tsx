@@ -8,7 +8,7 @@ interface YearMobileProps {
 
 const YearMobile: React.FC<YearMobileProps> = ({ data }) => {
   return (
-    <article className="grid grid-row-1 pl-4">
+    <article className="grid grid-row-1 pl-6">
       <div className="border-l-2 border-black dark:border-white">
         <h3 className="relative max-w-[11rem] sm:max-w-[13rem] pl-10 max-sm:pl-6 border-0 border-b-2 border-solid text-black dark:text-white">
           {data.year}

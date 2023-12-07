@@ -55,7 +55,7 @@ export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Ele
 
   return (
     <div className="bg-white dark:bg-black">
-      <h4 className="text-black dark:text-white">
+      <h4 className="text-black dark:text-white max-sm:px-2">
         Läs historien om vad som kom att blir Varbergs största besöksmål
       </h4>
       {data.allCenturies.map((century: CenturyType) => (

@@ -15,9 +15,7 @@ async function fetchCentury() {
       buttonText
       years {
         year
-        content {
-          value
-        }
+        content(markdown: false)
         image {
           url
           alt
@@ -40,7 +38,8 @@ export interface CenturyType {
   buttonText: string;
   years: {
     year: string;
-    content: any;
+    title: string;
+    content: string;
     image: {
       url: string;
       alt: string;

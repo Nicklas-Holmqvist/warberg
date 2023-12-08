@@ -9,15 +9,20 @@ import YearRight from './YearRight';
 import YearMobile from './YearMobile';
 
 interface CenturyContentProps {
-  data: {
-    year: string;
-    content: any;
-    image: {
-      url: string;
-      alt: string;
-    } | null;
-  }[];
+  data: YearContent[];
 }
+
+export type YearContent = {
+  title: string;
+  year: string;
+  content: string;
+  image: {
+    url: string;
+    alt: string;
+    notes: string;
+    title: string;
+  } | null;
+};
 
 const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
   const smallScreen = useMediaQuery({

@@ -15,6 +15,7 @@ async function fetchCentury() {
       buttonText
       years {
         year
+        title
         content(markdown: false)
         image {
           url

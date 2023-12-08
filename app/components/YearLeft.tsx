@@ -1,12 +1,22 @@
-import React from 'react';
+'use react';
+
 import Image from 'next/image';
-import { StructuredText } from 'react-datocms';
+import ReactMarkdown from 'react-markdown';
+import React, { useState } from 'react';
+
+import { YearContent } from './CenturyContent';
 
 interface YearLeftProps {
-  data: any;
+  data: YearContent;
 }
 
 const YearLeft: React.FC<YearLeftProps> = ({ data }) => {
+  const maxLength: number = 1000;
+  const textLength: number = data.content.length;
+  const shortenText: string = data.content.slice(0, maxLength) + '...';
+
+  const [showAllText, setShowAllText] = useState<boolean>(false);
+
   return (
     <article className="grid grid-cols-2">
       <div className="justify-self-end border-r-2 border-black dark:border-white">
@@ -33,7 +43,23 @@ const YearLeft: React.FC<YearLeftProps> = ({ data }) => {
             </>
           ) : (
             <div className="year-content">
-              <StructuredText data={data.content} />
+              <h3>{data.title}</h3>
+              {textLength >= maxLength && !showAllText ? (
+                <ReactMarkdown>{shortenText}</ReactMarkdown>
+              ) : null}
+              {showAllText ? (
+                <ReactMarkdown>{data.content}</ReactMarkdown>
+              ) : null}
+              {textLength <= maxLength ? (
+                <ReactMarkdown>{data.content}</ReactMarkdown>
+              ) : null}
+              {textLength >= maxLength ? (
+                <button
+                  className="pt-2 font-bold hover:border-b-2"
+                  onClick={() => setShowAllText(!showAllText)}>
+                  {showAllText ? 'Dölj text' : 'Läs mer'}
+                </button>
+              ) : null}
             </div>
           )}
         </div>

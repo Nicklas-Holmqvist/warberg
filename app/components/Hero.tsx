@@ -25,7 +25,7 @@ const Hero: React.FC<HeroProps> = ({}) => {
         </h5>
       </div>
       <Link
-        className="absolute w-10 h-10 bottom-10 left-0 right-0 m-auto text-black dark:text-white animate-bounce hover:animate-none"
+        className="absolute w-10 h-10 bottom-[10rem] md:bottom-10 left-0 right-0 m-auto text-black dark:text-white animate-bounce hover:animate-none"
         href={'#explore'}>
         <LuChevronDown
           className="m-auto animate-ping border-[0.2rem] rounded-full"

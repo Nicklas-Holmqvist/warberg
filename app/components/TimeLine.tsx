@@ -54,7 +54,7 @@ export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Ele
   const { data }: any = await fetchCentury();
 
   return (
-    <div className="bg-white dark:bg-black">
+    <div id="explore" className="bg-white dark:bg-black">
       <h4 className="text-black dark:text-white max-sm:px-2">
         Läs historien om vad som kom att blir Varbergs största besöksmål
       </h4>

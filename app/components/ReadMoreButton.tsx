@@ -1,6 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { LuChevronDown, LuChevronUp } from '@metamist/lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
 
 interface ReadMoreButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   text: string;
@@ -17,7 +17,7 @@ const ReadMoreButton: React.FC<ReadMoreButtonProps> = ({
       className="flex flex-col justify-center pb-4 pt-2 m-auto"
       {...props}>
       <motion.span
-        className="text-black dark:text-white"
+        className="text-black dark:text-white font-bold"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.2 }}>

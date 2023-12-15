@@ -18,7 +18,7 @@ const CookieBanner = () => {
 
   return (
     <div
-      className={`fixed w-full px-6 py-3 mb-3 bg-black dark:bg-white text-white dark:text-black rounded items-center justify-between bottom-0 left-0 right-0 shadow banner md:w-1/2 m-auto ${
+      className={`fixed w-11/12 px-6 py-3 mb-3 bg-black dark:bg-white text-white dark:text-black rounded items-center justify-between bottom-0 left-0 right-0 shadow banner md:w-1/2 m-auto ${
         cookieConsent !== null ? 'hidden' : 'flex'
       }`}>
       <p className="pr-2">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans, Playfair_Display } from 'next/font/google';
 import './globals.css';
+import CookieBanner from './components/CookieBanner';
 
 const notoSans = Noto_Sans({
   subsets: ['latin'],
@@ -28,6 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${notoSans.variable} ${playfairDisplay.variable}`}>
         {children}
+        <CookieBanner />
       </body>
     </html>
   );

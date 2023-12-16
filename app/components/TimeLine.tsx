@@ -50,8 +50,14 @@ export interface CenturyType {
   }[];
 }
 
+type DataType = {
+  data: {
+    allCenturies: CenturyType[];
+  };
+};
+
 export default async function TimeLine({}: TimeLineProps): Promise<React.JSX.Element> {
-  const { data }: any = await fetchCentury();
+  const { data }: DataType = await fetchCentury();
 
   return (
     <div id="explore" className="bg-white dark:bg-black">

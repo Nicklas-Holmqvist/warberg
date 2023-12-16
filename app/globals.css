@@ -54,6 +54,11 @@ p {
   font-size: 14px;
 }
 
+a {
+  font-family: var(--font-notoSans);
+  font-size: 14px;
+}
+
 .year-content p {
   padding-top: 0.8rem;
 }

@@ -128,10 +128,11 @@ const books: {
 const Footer = () => {
   const ref = useRef(null);
   const isInView = useInView(ref);
+  const year = new Date().getFullYear();
   return (
-    <footer className="flex max-w-[1600px] pt-2 pb-12 m-auto text-black dark:text-white">
+    <footer className="px-8 md:px10 flex flex-col max-w-[1600px] pt-2 pb-12 m-auto text-black dark:text-white">
       <motion.div
-        className="flex w-full flex-wrap flex-col md:flex-row px-8 md:px10"
+        className="flex w-full flex-wrap flex-col md:flex-row "
         ref={ref}
         initial={{ y: 100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : ''}>
@@ -166,6 +167,16 @@ const Footer = () => {
             ))}
           </ul>
         </div>
+      </motion.div>
+      <motion.div
+        className="flex flex-row w-full md:w-[16rem] mt-10 md:mt-4 pt-4 justify-between border-t-2 md:border-none"
+        ref={ref}
+        initial={{ y: 100, opacity: 0 }}
+        animate={isInView ? { y: 0, opacity: 1 } : ''}>
+        <Link className="hover:border-b-2" href={'./about'}>
+          Om sidan
+        </Link>
+        <p className="">&copy; Nicklas Holmqvist {year}</p>
       </motion.div>
     </footer>
   );

@@ -131,12 +131,12 @@ const Footer = () => {
   const year = new Date().getFullYear();
   return (
     <footer className="px-8 md:px10 flex flex-col max-w-[1600px] pt-2 pb-12 m-auto text-black dark:text-white">
-      <motion.div
-        className="flex w-full flex-wrap flex-col md:flex-row "
-        ref={ref}
-        initial={{ y: 100, opacity: 0 }}
-        animate={isInView ? { y: 0, opacity: 1 } : ''}>
-        <div className="flex-1 max-w-full md:w-[800px] pb-8 md:pb-0 pt-10 border-t-2">
+      <div className="flex w-full flex-wrap flex-col md:flex-row ">
+        <motion.div
+          className="flex-1 max-w-full md:w-[800px] pb-8 md:pb-0 pt-10 border-t-2"
+          ref={ref}
+          initial={{ y: 100, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : ''}>
           <h5 className="text-start pb-1">Relaterade länkar</h5>
           <ul>
             {links.map((link, index) => (
@@ -150,8 +150,12 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-        </div>
-        <div className="flex-1 md:w-[800px] pt-0 md:pt-10 md:border-t-2">
+        </motion.div>
+        <motion.div
+          className="flex-1 md:w-[800px] pt-0 md:pt-10 md:border-t-2"
+          ref={ref}
+          initial={{ y: 100, opacity: 0 }}
+          animate={isInView ? { y: 0, opacity: 1 } : ''}>
           <h5 className="text-start pb-1">Urval på biblioteket</h5>
           <ul>
             {books.map((book, index) => (
@@ -166,14 +170,19 @@ const Footer = () => {
               </li>
             ))}
           </ul>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
       <motion.div
-        className="flex flex-row w-full md:w-[16rem] mt-10 md:mt-4 pt-4 justify-between border-t-2 md:border-none"
+        className="flex flex-row w-full md:w-[20rem] mt-10 md:mt-4 pt-4 justify-between border-t-2 md:border-none"
         ref={ref}
         initial={{ y: 100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : ''}>
-        <Link className="hover:border-b-2" href={'./about'}>
+        <Link
+          className="border-b-2"
+          href={'https://maps.app.goo.gl/tFcFZpszgBnS2YJg8'}>
+          Hitta hit
+        </Link>
+        <Link className="border-b-2" href={'./about'}>
           Om sidan
         </Link>
         <p className="">&copy; Nicklas Holmqvist {year}</p>

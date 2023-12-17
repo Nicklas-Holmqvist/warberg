@@ -179,7 +179,8 @@ const Footer = () => {
         animate={isInView ? { y: 0, opacity: 1 } : ''}>
         <Link
           className="border-b-2"
-          href={'https://maps.app.goo.gl/tFcFZpszgBnS2YJg8'}>
+          href={'https://maps.app.goo.gl/tFcFZpszgBnS2YJg8'}
+          target="_blank">
           Hitta hit
         </Link>
         <Link className="border-b-2" href={'./about'}>

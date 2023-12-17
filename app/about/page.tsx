@@ -5,14 +5,14 @@ import ReactMarkdown from 'react-markdown';
 import { performRequest } from '@/lib/apollo';
 
 async function fetchAbout() {
-  const CENTURIES = `
+  const ABOUT = `
     query About {
         about {
           title
           content
         }
       }`;
-  const data = await performRequest({ query: CENTURIES });
+  const data = await performRequest({ query: ABOUT });
 
   if (data.errors) return notFound();
 

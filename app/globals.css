@@ -59,6 +59,12 @@ a {
   font-size: 14px;
 }
 
+blockquote p {
+  padding-top: 0 !important;
+  font-style: italic;
+  font-weight: bold;
+}
+
 .year-content p {
   padding-top: 0.8rem;
 }

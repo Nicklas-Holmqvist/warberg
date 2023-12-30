@@ -66,6 +66,7 @@ blockquote p {
 
 .year-content p {
   padding-top: 0.8rem;
+  white-space: break-spaces;
 }
 
 .year-content h3 {

@@ -40,6 +40,27 @@ const YearLeft: React.FC<YearLeftProps> = ({ data }) => {
               <p className="pt-[0.2rem] text-xs italic">
                 Bild: {data.image.notes}
               </p>
+              {data.content ? (
+                <div className="year-content">
+                  <h3>{data.title}</h3>
+                  {textLength >= maxLength && !showAllText ? (
+                    <ReactMarkdown>{shortenText}</ReactMarkdown>
+                  ) : null}
+                  {showAllText ? (
+                    <ReactMarkdown>{data.content}</ReactMarkdown>
+                  ) : null}
+                  {textLength <= maxLength ? (
+                    <ReactMarkdown>{data.content}</ReactMarkdown>
+                  ) : null}
+                  {textLength >= maxLength ? (
+                    <button
+                      className="pt-2 font-bold hover:border-b-2"
+                      onClick={() => setShowAllText(!showAllText)}>
+                      {showAllText ? 'Dölj text' : 'Läs mer'}
+                    </button>
+                  ) : null}
+                </div>
+              ) : null}
             </>
           ) : (
             <div className="year-content">

@@ -29,7 +29,7 @@ const YearLeft: React.FC<YearLeftProps> = ({ data }) => {
         <div className="p-10 pl-[2.75rem] pt-14 max-w-[50rem] leading-5 text-black dark:text-white">
           {data.image ? (
             <>
-              {data.title ? <h3 className="pb-2">{data.title}</h3> : null}
+              {data.title ? <h3 className="pb-6">{data.title}</h3> : null}
               <Image
                 src={`${data.image.url}`}
                 alt={data.image.alt}

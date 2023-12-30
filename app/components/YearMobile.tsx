@@ -29,7 +29,7 @@ const YearMobile: React.FC<YearMobileProps> = ({ data }) => {
         <div className="p-10 pl-[2.75rem] max-sm:pl-6 max-sm:pt-6 max-md:pt-8 pt-14 max-w-[50rem] leading-5 text-black dark:text-white">
           {data.image ? (
             <>
-              {data.title ? <h3>{data.title}</h3> : null}
+              {data.title ? <h3 className="pb-6">{data.title}</h3> : null}
               <Image
                 src={`${data.image.url}`}
                 alt={data.image.alt}

@@ -22,6 +22,7 @@ const YearRight: React.FC<YearRightProps> = ({ data }) => {
         <div className="p-10 pr[2.75rem] pt-14 max-w-[50rem] leading-5 text-black dark:text-white">
           {data.image ? (
             <>
+              {data.title ? <h3 className="pb-6">{data.title}</h3> : null}
               <Image
                 src={`${data.image.url}`}
                 alt={data.image.alt}
@@ -35,7 +36,6 @@ const YearRight: React.FC<YearRightProps> = ({ data }) => {
               </p>
               {data.content ? (
                 <div className="year-content">
-                  <h3>{data.title}</h3>
                   {textLength >= maxLength && !showAllText ? (
                     <ReactMarkdown>{shortenText}</ReactMarkdown>
                   ) : null}

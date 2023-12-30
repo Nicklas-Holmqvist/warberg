@@ -36,8 +36,31 @@ const YearMobile: React.FC<YearMobileProps> = ({ data }) => {
                 height={300}
                 width={800}
               />
-              <p className="pt-2">{data.image.title}</p>
-              <p className="pt-1 text-xs italic">Bild: {data.image.notes}</p>
+              <p className="pt-2 leading-4">{data.image.title}</p>
+              <p className="pt-[0.2rem] text-xs italic">
+                Bild: {data.image.notes}
+              </p>
+              {data.content ? (
+                <div className="year-content">
+                  <h3>{data.title}</h3>
+                  {textLength >= maxLength && !showAllText ? (
+                    <ReactMarkdown>{shortenText}</ReactMarkdown>
+                  ) : null}
+                  {showAllText ? (
+                    <ReactMarkdown>{data.content}</ReactMarkdown>
+                  ) : null}
+                  {textLength <= maxLength ? (
+                    <ReactMarkdown>{data.content}</ReactMarkdown>
+                  ) : null}
+                  {textLength >= maxLength ? (
+                    <button
+                      className="pt-2 font-bold hover:border-b-2"
+                      onClick={() => setShowAllText(!showAllText)}>
+                      {showAllText ? 'Dölj text' : 'Läs mer'}
+                    </button>
+                  ) : null}
+                </div>
+              ) : null}
             </>
           ) : (
             <div className="year-content">

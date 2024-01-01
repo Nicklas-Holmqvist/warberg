@@ -4,24 +4,25 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
 
-import YearLeft from './YearLeft';
-import YearRight from './YearRight';
 import YearMobile from './YearMobile';
+import YearDesktop from './YearDesktop';
 
 interface CenturyContentProps {
-  data: YearContent[];
+  data: Year[];
 }
 
-export type YearContent = {
+export type Year = {
   title: string;
   year: string;
   content: string;
-  image: {
-    url: string;
-    alt: string;
-    notes: string;
-    title: string;
-  } | null;
+  image: ImageData | null;
+};
+
+export type ImageData = {
+  url: string;
+  alt: string;
+  notes: string;
+  title: string;
 };
 
 const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
@@ -41,13 +42,7 @@ const CenturyContent: React.FC<CenturyContentProps> = ({ data }) => {
           {smallScreen ? (
             <YearMobile data={year} />
           ) : (
-            <>
-              {index % 2 !== 0 ? (
-                <YearLeft data={year} />
-              ) : (
-                <YearRight data={year} />
-              )}
-            </>
+            <YearDesktop data={year} index={index} />
           )}
         </motion.article>
       ))}

@@ -1,10 +1,10 @@
 'use react';
 
-import React, { useState } from 'react';
 import Image from 'next/image';
+import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { ImageData } from './CenturyContent';
-import { useMediaQuery } from 'react-responsive';
 
 interface ImageComponentProps {
   data: ImageData;

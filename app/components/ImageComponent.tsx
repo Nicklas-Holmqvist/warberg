@@ -1,7 +1,8 @@
 'use react';
 
-import React, { useState } from 'react';
 import Image from 'next/image';
+import React, { useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 import { ImageData } from './CenturyContent';
 
@@ -10,6 +11,9 @@ interface ImageComponentProps {
 }
 
 const ImageComponent: React.FC<ImageComponentProps> = ({ data }) => {
+  const smallScreen = useMediaQuery({
+    query: '(max-width: 900px)',
+  });
   const [[x, y], setXY] = useState([0, 0]);
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
   const [showMagnifier, setShowMagnifier] = useState(false);
@@ -26,25 +30,45 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ data }) => {
         title={data.title}
         height={300}
         width={800}
-        className={`${showMagnifier ? 'cursor-zoom-in' : 'cursor-zoom-out'}`}
-        onMouseOver={() => setShowMagnifier(!showMagnifier)}
+        className={`${
+          smallScreen
+            ? ''
+            : showMagnifier
+            ? 'cursor-zoom-in'
+            : 'cursor-zoom-out'
+        }`}
         onClick={(e) => {
-          const element = e.currentTarget;
-          const { width, height } = element.getBoundingClientRect();
-          setSize([width, height]);
-          setActivatedMagnifier(!activatedMagnifier);
-          setShowMagnifier(!showMagnifier);
+          if (smallScreen) return null;
+          else {
+            const element = e.currentTarget;
+            const { width, height } = element.getBoundingClientRect();
+            setSize([width, height]);
+            setActivatedMagnifier(!activatedMagnifier);
+            setShowMagnifier(!showMagnifier);
+          }
+        }}
+        onMouseEnter={() => {
+          if (smallScreen) return null;
+          else {
+            setShowMagnifier(!showMagnifier);
+          }
         }}
         onMouseMove={(e) => {
-          const element = e.currentTarget;
-          const { top, left } = element.getBoundingClientRect();
-          const x = e.pageX - left - window.scrollX;
-          const y = e.pageY - top - window.scrollY;
-          setXY([x, y]);
+          if (smallScreen) return null;
+          else {
+            const element = e.currentTarget;
+            const { top, left } = element.getBoundingClientRect();
+            const x = e.pageX - left - window.scrollX;
+            const y = e.pageY - top - window.scrollY;
+            setXY([x, y]);
+          }
         }}
         onMouseLeave={() => {
-          setShowMagnifier(false);
-          setActivatedMagnifier(false);
+          if (smallScreen) return null;
+          else {
+            setShowMagnifier(false);
+            setActivatedMagnifier(false);
+          }
         }}
       />
       <p className="pt-2 leading-4">{data.title}</p>

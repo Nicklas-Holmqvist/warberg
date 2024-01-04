@@ -38,13 +38,15 @@ const YearLeft: React.FC<YearLeftProps> = ({ data, index }) => {
         <div className="p-10 pl-[2.75rem] pt-14 max-w-[50rem] leading-5 text-black dark:text-white">
           {data.image ? (
             <>
-              {data.title ? <h3 className="pb-6">{data.title}</h3> : null}
+              {data.title ? (
+                <h3 className="pb-6 leading-10">{data.title}</h3>
+              ) : null}
               <ImageComponent data={data.image} />
               {data.content ? <YearContent data={data.content} /> : null}
             </>
           ) : (
             <>
-              <h3 className="pb-6">{data.title}</h3>
+              <h3 className="pb-6 leading-10">{data.title}</h3>
               <YearContent data={data.content} />
             </>
           )}

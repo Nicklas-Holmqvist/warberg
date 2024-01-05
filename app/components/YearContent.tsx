@@ -14,7 +14,7 @@ const YearContent: React.FC<YearContentProps> = (data) => {
 
   const [showAllText, setShowAllText] = useState<boolean>(false);
   return (
-    <div>
+    <div className="year-content">
       {textLength >= maxLength && !showAllText ? (
         <ReactMarkdown>{shortenText}</ReactMarkdown>
       ) : null}

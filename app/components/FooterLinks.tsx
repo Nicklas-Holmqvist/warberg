@@ -24,7 +24,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ data }) => {
       initial={{ y: 100, opacity: 0 }}
       animate={isInView ? { y: 0, opacity: 1 } : ''}>
       <div className="flex-1 max-w-full md:w-[800px] pb-8 md:pb-0 pt-10 border-t-2">
-        <h5 className="text-start pb-1">Relaterade länkar</h5>
+        <h6 className="text-start pb-1">Relaterade länkar</h6>
         <ul>
           {data.relatedLinks.map((link, index) => (
             <li key={index}>
@@ -39,7 +39,7 @@ const FooterLinks: React.FC<FooterLinksProps> = ({ data }) => {
         </ul>
       </div>
       <div className="flex-1 md:w-[800px] pt-0 md:pt-10 md:border-t-2">
-        <h5 className="text-start pb-1">Urval på biblioteket</h5>
+        <h6 className="text-start pb-1">Urval på biblioteket</h6>
         <ul>
           {data.litteratures.map((book, index) => (
             <li key={index}>

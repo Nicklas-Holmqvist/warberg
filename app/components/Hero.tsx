@@ -19,9 +19,9 @@ const Hero: React.FC<HeroProps> = ({}) => {
       />
       <div className="absolute inset-0 max-w-[20rem] h-[8rem] mx-auto my-auto z-100">
         <h1 className="text-black dark:text-white">Warberg</h1>
-        <h5 className="text-center text-black dark:text-white">
+        <p className="text-center text-black dark:text-white font-fair">
           Fästningen på berget
-        </h5>
+        </p>
       </div>
       <ScrollDownIcon />
     </section>

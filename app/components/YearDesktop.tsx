@@ -20,7 +20,7 @@ const YearLeft: React.FC<YearLeftProps> = ({ data, index }) => {
             ? 'order-last justify-self-start'
             : 'border-r-2 order-first justify-self-end border-black dark:border-white'
         }`}>
-        <h3
+        <h4
           className={`relative w-[13rem] 
         ${side ? 'text-end' : 'text-start'}
         border-0 border-b-2 border-solid text-black dark:text-white border-black dark:border-white`}>
@@ -29,7 +29,7 @@ const YearLeft: React.FC<YearLeftProps> = ({ data, index }) => {
             className={`absolute w-2 p-1 border rounded-full outline outline-8 outline-[#100b00] bg-white 
           ${side ? 'bottom-[-6px] left-[-6px]' : 'bottom-[-6px] right-[-6px]'}
            text-black dark:text-white border-black dark:border-white`}></span>
-        </h3>
+        </h4>
       </div>
       <div
         className={`${
@@ -39,14 +39,14 @@ const YearLeft: React.FC<YearLeftProps> = ({ data, index }) => {
           {data.image ? (
             <>
               {data.title ? (
-                <h3 className="pb-6 leading-10">{data.title}</h3>
+                <h5 className="pb-6 leading-10">{data.title}</h5>
               ) : null}
               <ImageComponent data={data.image} />
               {data.content ? <YearContent data={data.content} /> : null}
             </>
           ) : (
             <>
-              <h3 className="pb-6 leading-10">{data.title}</h3>
+              <h5 className="pb-6 leading-10">{data.title}</h5>
               <YearContent data={data.content} />
             </>
           )}

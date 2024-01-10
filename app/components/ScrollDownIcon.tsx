@@ -5,6 +5,8 @@ import { LuChevronDown } from '@metamist/lucide-react';
 const ScrollDownIcon = () => {
   return (
     <Link
+      role="button"
+      aria-label="Gå ner till tidslinjen för Varbergs fästning och börja läsa"
       className="absolute w-10 h-10 bottom-[10rem] md:bottom-10 left-0 right-0 m-auto text-black dark:text-white animate-bouncing hover:animate-none"
       href={'#explore'}>
       <LuChevronDown

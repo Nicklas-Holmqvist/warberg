@@ -14,6 +14,7 @@ const ReadMoreButton: React.FC<ReadMoreButtonProps> = ({
 }) => {
   return (
     <button
+      aria-label="Öppna och läs om århundrandet eller stäng det"
       className="flex flex-col justify-center pb-4 pt-2 m-auto"
       {...props}>
       <motion.span

@@ -1,11 +1,11 @@
 'use client';
 
+import { motion, useInView } from 'framer-motion';
 import React, { Suspense, useRef, useState } from 'react';
 
 import { CenturyType } from './TimeLine';
 import ReadMoreButton from './ReadMoreButton';
 import CenturyContent from './CenturyContent';
-import { motion, useInView } from 'framer-motion';
 
 interface CenturyProps {
   data: CenturyType;
@@ -21,8 +21,12 @@ const Century: React.FC<CenturyProps> = ({ data }) => {
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : ''}>
-        <h2 className="text-black dark:text-white">{data.century}</h2>
-        <h5 className="text-black dark:text-white">{data.summary}</h5>
+        <h3 className="text-black dark:text-white text-center">
+          {data.century}
+        </h3>
+        <p className="text-black dark:text-white text-center font-fair">
+          {data.summary}
+        </p>
         <ReadMoreButton
           text={data.buttonText}
           open={open}

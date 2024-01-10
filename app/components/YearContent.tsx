@@ -24,9 +24,10 @@ const YearContent: React.FC<YearContentProps> = (data) => {
       ) : null}
       {textLength >= maxLength ? (
         <button
+          aria-label="Öppna eller stäng hela stycket"
           className="pt-2 font-bold hover:border-b-2"
           onClick={() => setShowAllText(!showAllText)}>
-          {showAllText ? 'Dölj text' : 'Läs mer'}
+          {showAllText ? 'Visa mindre' : 'Visa mer'}
         </button>
       ) : null}
     </div>

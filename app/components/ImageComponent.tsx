@@ -71,8 +71,14 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ data }) => {
           }
         }}
       />
-      <p className="pt-2 leading-4">{data.title}</p>
-      <p className="pt-[0.2rem] pb-6 text-xs italic">Bild: {data.notes}</p>
+      <p aria-hidden="true" className="pt-2 leading-4">
+        {data.title}
+      </p>
+      <p
+        aria-label="Källa till bilden"
+        className="pt-[0.2rem] pb-6 text-xs italic">
+        Bild: {data.notes}
+      </p>
       <div
         style={{
           display: activatedMagnifier ? '' : 'none',

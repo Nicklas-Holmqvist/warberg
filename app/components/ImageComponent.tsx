@@ -1,8 +1,9 @@
 'use react';
 
 import Image from 'next/image';
-import React, { useState } from 'react';
+import { motion } from 'framer-motion';
 import { useMediaQuery } from 'react-responsive';
+import React, { useState } from 'react';
 
 import { ImageData } from './CenturyContent';
 
@@ -18,8 +19,7 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ data }) => {
   const [[imgWidth, imgHeight], setSize] = useState([0, 0]);
   const [showMagnifier, setShowMagnifier] = useState(false);
   const [activatedMagnifier, setActivatedMagnifier] = useState(false);
-  const magnifierHeight = 150;
-  const magnifieWidth = 150;
+  const magnifierSize = 150;
   const zoomLevel = 2.5;
 
   return (
@@ -31,11 +31,7 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ data }) => {
         height={300}
         width={800}
         className={`${
-          smallScreen
-            ? ''
-            : showMagnifier
-            ? 'cursor-zoom-in'
-            : 'cursor-zoom-out'
+          smallScreen ? '' : showMagnifier ? 'cursor-zoom-in' : 'cursor-none'
         }`}
         onClick={(e) => {
           if (smallScreen) return null;
@@ -79,27 +75,41 @@ const ImageComponent: React.FC<ImageComponentProps> = ({ data }) => {
         className="pt-[0.2rem] pb-6 text-xs italic">
         Bild: {data.notes}
       </p>
-      <div
+      <motion.div
+        variants={activatedMagnifier ? motionMagnifier : undefined}
+        initial="hidden"
+        animate="show"
         style={{
           display: activatedMagnifier ? '' : 'none',
           position: 'absolute',
           pointerEvents: 'none',
-          height: `${magnifierHeight}px`,
-          width: `${magnifieWidth}px`,
-          top: `${y - magnifierHeight / 2}px`,
-          left: `${x - magnifieWidth / 2}px`,
-          border: '1px solid lightgray',
+          top: `${y - magnifierSize / 2}px`,
+          left: `${x - magnifierSize / 2}px`,
+          border: '1px solid black',
           backgroundColor: 'black',
           backgroundImage: `url('${data.url}')`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: `${imgWidth * zoomLevel}px ${
             imgHeight * zoomLevel
           }px`,
-          backgroundPositionX: `${-x * zoomLevel + magnifieWidth / 2}px`,
-          backgroundPositionY: `${-y * zoomLevel + magnifierHeight / 2}px`,
-        }}></div>
+          backgroundPositionX: `${-x * zoomLevel + magnifierSize / 2}px`,
+          backgroundPositionY: `${-y * zoomLevel + magnifierSize / 2}px`,
+          borderRadius: '100%',
+        }}></motion.div>
     </div>
   );
 };
 
 export default ImageComponent;
+
+const motionMagnifier = {
+  hidden: { width: 0, height: 0, opacity: 0 },
+  show: {
+    width: 150,
+    height: 150,
+    opacity: 1,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};

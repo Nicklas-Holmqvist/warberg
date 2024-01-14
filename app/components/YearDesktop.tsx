@@ -2,6 +2,7 @@ import React from 'react';
 
 import { Year } from './CenturyContent';
 import YearContent from './YearContent';
+import TimelineYear from './desktopComponents/TimelineYear';
 import ImageComponent from './ImageComponent';
 
 interface YearLeftProps {
@@ -20,16 +21,7 @@ const YearLeft: React.FC<YearLeftProps> = ({ data, index }) => {
             ? 'order-last justify-self-start'
             : 'border-r-2 order-first justify-self-end border-black dark:border-white'
         }`}>
-        <h4
-          className={`relative w-[13rem] 
-        ${side ? 'text-end' : 'text-start'}
-        border-0 border-b-2 border-solid text-black dark:text-white border-black dark:border-white`}>
-          {data.year}
-          <span
-            className={`absolute w-2 p-1 border rounded-full outline outline-8 outline-[#100b00] bg-white 
-          ${side ? 'bottom-[-6px] left-[-6px]' : 'bottom-[-6px] right-[-6px]'}
-           text-black dark:text-white border-black dark:border-white`}></span>
-        </h4>
+        <TimelineYear year={data.year} side={side} />
       </div>
       <div
         className={`${

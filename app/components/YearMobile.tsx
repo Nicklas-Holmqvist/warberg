@@ -1,8 +1,8 @@
 import React from 'react';
 
 import { Year } from './CenturyContent';
-import ImageComponent from './ImageComponent';
 import YearContent from './YearContent';
+import ImageComponent from './ImageComponent';
 
 interface YearMobileProps {
   data: Year;

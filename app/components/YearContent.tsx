@@ -3,6 +3,8 @@
 import ReactMarkdown from 'react-markdown';
 import React, { useState } from 'react';
 
+import ShowMoreButton from './ShowMoreButton';
+
 interface YearContentProps {
   data: string;
 }
@@ -23,12 +25,10 @@ const YearContent: React.FC<YearContentProps> = (data) => {
         <ReactMarkdown>{data.data}</ReactMarkdown>
       ) : null}
       {textLength >= maxLength ? (
-        <button
-          aria-label={showAllText ? 'Visa mindre' : 'Visa mer'}
-          className="pt-2 font-bold hover:border-b-2"
-          onClick={() => setShowAllText(!showAllText)}>
-          {showAllText ? 'Visa mindre' : 'Visa mer'}
-        </button>
+        <ShowMoreButton
+          showAllText={showAllText}
+          onClick={() => setShowAllText(!showAllText)}
+        />
       ) : null}
     </div>
   );

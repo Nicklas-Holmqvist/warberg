@@ -17,7 +17,7 @@ const Century: React.FC<CenturyProps> = ({ data }) => {
   const isInView = useInView(ref);
 
   return (
-    <section className="pb-10" ref={ref}>
+    <section id={data.century} className="pb-10" ref={ref}>
       <motion.div
         initial={{ y: 100, opacity: 0 }}
         animate={isInView ? { y: 0, opacity: 1 } : ''}>
@@ -35,6 +35,15 @@ const Century: React.FC<CenturyProps> = ({ data }) => {
         <Suspense fallback={'loading...'}>
           {open ? <CenturyContent data={data.years} /> : null}
         </Suspense>
+        {open ? (
+          <a href={`#${data.century}`}>
+            <ReadMoreButton
+              text={data.buttonText}
+              open={open}
+              onClick={() => setOpen(!open)}
+            />
+          </a>
+        ) : null}
       </motion.div>
     </section>
   );
